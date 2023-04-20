@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@ui-kitten/eva-icons": ["./node_modules/@ui-kitten/eva-icons/lib"]
+    },
+    // Other compiler options...
+  }
+}
