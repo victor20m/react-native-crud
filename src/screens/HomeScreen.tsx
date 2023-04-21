@@ -9,7 +9,9 @@ import { Layout } from '@ui-kitten/components';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from '../navigation/AppNavigator';
-
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faMugSaucer} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
+import {Tile} from '../components/Tile/Tile';
 
 type Props = NativeStackScreenProps<RootStackParamList>;
 
@@ -27,12 +29,12 @@ const HomeScreen = ({ navigation }: Props) => {
                     backgroundColor={backgroundStyle.backgroundColor}
                 />
                 <ScrollView
-                    contentInsetAdjustmentBehavior="automatic"
-                    style={backgroundStyle}>
+                    contentInsetAdjustmentBehavior="automatic">
                     <View
                         style={{
                             backgroundColor: themeMode === "dark" ? Colors.black : Colors.white,
                         }}>
+                            <Tile icon={<FontAwesomeIcon icon={ faMugSaucer } />} title="Testing component" onPress={() => navigation.navigate('Home')}/>
                     </View>
                 </ScrollView>
             </Layout>
