@@ -1,20 +1,12 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React, { useState } from 'react';
 import {
   StyleSheet,
 } from 'react-native';
-import { store } from './core/redux/store'
+import { store } from './src/redux/store';
 import { Provider } from 'react-redux'
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider } from '@ui-kitten/components';
-import {AppNavigator} from './navigation/AppNavigator';
-import { NavigationContainer } from '@react-navigation/native';
+import { AppNavigator } from './src/navigation/AppNavigator';
 
 function App(): JSX.Element {
   const [themeMode, setThemeMode] = useState("light")

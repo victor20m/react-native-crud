@@ -91,6 +91,9 @@ export const AppNavigator: React.FunctionComponent = () => {
         drawerContent={CustomDrawer}
         screenOptions={{
           headerTitleAlign: "center",
+          drawerStyle: {
+            paddingTop: 20
+          },
           headerStyle: {
             backgroundColor: "#1A6FD3",
             borderBottomWidth: 11,
@@ -98,7 +101,7 @@ export const AppNavigator: React.FunctionComponent = () => {
             shadowOffset: { height: 3, width: 0 },
             shadowColor: 'black',
             shadowOpacity: 1,
-            elevation: 5,
+            elevation: 5
           },
           headerTitleStyle: { color: "white" },
           headerTintColor: "white"
