@@ -1,17 +1,17 @@
 import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
-  container: {
-    width: 150,
-    height: 150,
-    backgroundColor: '#161616',
-    alignItems: 'center',
+  card: {width: '100%', height: 'auto', padding: 10},
+  userWelcome: {fontWeight: 'bold', fontSize: 20},
+  layout: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 30,
+    marginBottom: 30,
     justifyContent: 'center',
-    borderRadius: 10,
-    padding: 10,
-  },
-  iconContainer: {
+    gap: 20,
     alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'transparent',
   },
   title: {
     marginTop: 5,

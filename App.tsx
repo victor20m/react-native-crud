@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import {
-  StyleSheet,
-} from 'react-native';
-import { store } from './src/redux/store';
-import { Provider } from 'react-redux'
+import React, {useState} from 'react';
+import {StyleSheet} from 'react-native';
+import {store} from './src/redux/store';
+import {Provider} from 'react-redux';
 import * as eva from '@eva-design/eva';
-import { ApplicationProvider } from '@ui-kitten/components';
-import { AppNavigator } from './src/navigation/AppNavigator';
+import {ApplicationProvider} from '@ui-kitten/components';
+import {AppNavigator} from './src/navigation/AppNavigator';
 
 function App(): JSX.Element {
-  const [themeMode, setThemeMode] = useState("light")
+  const [themeMode, setThemeMode] = useState('light');
 
   return (
-    <Provider {...{ store }}>
-      <ApplicationProvider {...eva} theme={themeMode === "dark" ? eva.dark : eva.light}>
+    <ApplicationProvider
+      {...eva}
+      theme={themeMode === 'dark' ? eva.dark : eva.light}>
+      <Provider {...{store}}>
         <AppNavigator />
-      </ApplicationProvider>
-    </Provider>
+      </Provider>
+    </ApplicationProvider>
   );
 }
 

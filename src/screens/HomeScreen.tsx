@@ -1,44 +1,112 @@
 import React from 'react';
-import {
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
-    View,
-} from 'react-native';
-import { Layout } from '@ui-kitten/components';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from '../navigation/AppNavigator';
+import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
+import {Layout} from '@ui-kitten/components';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../navigation/AppNavigator';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faMugSaucer} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
+import {solid} from '@fortawesome/fontawesome-svg-core/import.macro';
 import {Tile} from '../components/Tile/Tile';
-
+import {Card, Text} from '@ui-kitten/components';
+import {styles} from './HomeScreen.styles';
 type Props = NativeStackScreenProps<RootStackParamList>;
 
-const HomeScreen = ({ navigation }: Props) => {
-    const themeMode: string = ""
-    const backgroundStyle = {
-        backgroundColor: themeMode === "dark" ? Colors.darker : Colors.lighter,
-        flex: 1
-    };
-    return (
-        <SafeAreaView style={backgroundStyle}>
-            <Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <StatusBar
-                    barStyle={themeMode === "dark" ? 'light-content' : 'dark-content'}
-                    backgroundColor={backgroundStyle.backgroundColor}
+const HomeScreen = ({navigation}: Props) => {
+  const themeMode: string = '';
+  const backgroundStyle = {
+    backgroundColor: themeMode === 'dark' ? Colors.darker : Colors.lighter,
+    flex: 1,
+  };
+  const iconColor = themeMode === 'dark' ? '#000000' : '#dbdbdb';
+
+  return (
+    <SafeAreaView style={backgroundStyle}>
+      <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <StatusBar
+          barStyle={themeMode === 'dark' ? 'light-content' : 'dark-content'}
+          backgroundColor={backgroundStyle.backgroundColor}
+        />
+
+        <ScrollView contentInsetAdjustmentBehavior="automatic">
+          <Card style={styles.card}>
+            <Text style={{fontSize: 20}}>
+              Hello, <Text style={styles.userWelcome}>John Doe</Text>
+            </Text>
+            <Text>Welcome back!</Text>
+          </Card>
+
+          <Layout style={styles.layout} level="4">
+            <Tile
+              icon={
+                <FontAwesomeIcon
+                  icon={solid('file-invoice')}
+                  size={90}
+                  style={{color: iconColor}}
                 />
-                <ScrollView
-                    contentInsetAdjustmentBehavior="automatic">
-                    <View
-                        style={{
-                            backgroundColor: themeMode === "dark" ? Colors.black : Colors.white,
-                        }}>
-                            <Tile icon={<FontAwesomeIcon icon={ faMugSaucer } />} title="Testing component" onPress={() => navigation.navigate('Home')}/>
-                    </View>
-                </ScrollView>
-            </Layout>
-        </SafeAreaView>);
-}
+              }
+              title="Transactions"
+              onPress={() => navigation.navigate('Home')}
+            />
+            <Tile
+              icon={
+                <FontAwesomeIcon
+                  icon={solid('users')}
+                  size={90}
+                  style={{color: iconColor}}
+                />
+              }
+              title="Customers"
+              onPress={() => navigation.navigate('Home')}
+            />
+            <Tile
+              icon={
+                <FontAwesomeIcon
+                  icon={solid('users-line')}
+                  size={90}
+                  style={{color: iconColor}}
+                />
+              }
+              title="Vendors"
+              onPress={() => navigation.navigate('Home')}
+            />
+            <Tile
+              icon={
+                <FontAwesomeIcon
+                  icon={solid('file-pen')}
+                  size={90}
+                  style={{color: iconColor}}
+                />
+              }
+              title="Records"
+              onPress={() => navigation.navigate('Home')}
+            />
+            <Tile
+              icon={
+                <FontAwesomeIcon
+                  icon={solid('chart-line')}
+                  size={90}
+                  style={{color: iconColor}}
+                />
+              }
+              title="Reports"
+              onPress={() => navigation.navigate('Home')}
+            />
+            <Tile
+              icon={
+                <FontAwesomeIcon
+                  icon={solid('gear')}
+                  size={90}
+                  style={{color: iconColor}}
+                />
+              }
+              title="Settings"
+              onPress={() => navigation.navigate('Home')}
+            />
+          </Layout>
+        </ScrollView>
+      </Layout>
+    </SafeAreaView>
+  );
+};
 
 export default HomeScreen;
