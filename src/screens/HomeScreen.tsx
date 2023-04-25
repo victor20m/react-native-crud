@@ -17,8 +17,7 @@ const HomeScreen = ({navigation}: Props) => {
     backgroundColor: themeMode === 'dark' ? Colors.darker : Colors.lighter,
     flex: 1,
   };
-  const iconColor = themeMode === 'dark' ? '#000000' : '#dbdbdb';
-
+  const iconColor = themeMode === 'dark' ? '#000000' : '#2A93D5';
   return (
     <SafeAreaView style={backgroundStyle}>
       <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -39,9 +38,9 @@ const HomeScreen = ({navigation}: Props) => {
             <Tile
               icon={
                 <FontAwesomeIcon
-                  icon={solid('file-invoice')}
-                  size={90}
-                  style={{color: iconColor}}
+                  icon={solid('handshake')}
+                  size={60}
+                  style={styles.icon}
                 />
               }
               title="Transactions"
@@ -51,8 +50,8 @@ const HomeScreen = ({navigation}: Props) => {
               icon={
                 <FontAwesomeIcon
                   icon={solid('users')}
-                  size={90}
-                  style={{color: iconColor}}
+                  size={60}
+                  style={styles.icon}
                 />
               }
               title="Customers"
@@ -62,8 +61,8 @@ const HomeScreen = ({navigation}: Props) => {
               icon={
                 <FontAwesomeIcon
                   icon={solid('users-line')}
-                  size={90}
-                  style={{color: iconColor}}
+                  size={60}
+                  style={styles.icon}
                 />
               }
               title="Vendors"
@@ -73,8 +72,8 @@ const HomeScreen = ({navigation}: Props) => {
               icon={
                 <FontAwesomeIcon
                   icon={solid('file-pen')}
-                  size={90}
-                  style={{color: iconColor}}
+                  size={60}
+                  style={styles.icon}
                 />
               }
               title="Records"
@@ -84,8 +83,8 @@ const HomeScreen = ({navigation}: Props) => {
               icon={
                 <FontAwesomeIcon
                   icon={solid('chart-line')}
-                  size={90}
-                  style={{color: iconColor}}
+                  size={60}
+                  style={styles.icon}
                 />
               }
               title="Reports"
@@ -95,8 +94,8 @@ const HomeScreen = ({navigation}: Props) => {
               icon={
                 <FontAwesomeIcon
                   icon={solid('gear')}
-                  size={90}
-                  style={{color: iconColor}}
+                  size={60}
+                  style={styles.icon}
                 />
               }
               title="Settings"

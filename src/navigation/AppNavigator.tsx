@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
-import { DrawerItem, Icon, IconProps, IconRegistry, MenuItemProps, Text } from '@ui-kitten/components';
+import { DrawerItem, Icon, IconProps, IconRegistry, Text } from '@ui-kitten/components';
 import { DrawerContentComponentProps, DrawerContentScrollView, DrawerNavigationProp, createDrawerNavigator } from '@react-navigation/drawer';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { RenderProp } from '@ui-kitten/components/devsupport';
@@ -23,16 +23,16 @@ const HomeNavigator = () => (
 
 export type DrawerParamList = {
   Home: undefined;
-  Orders: undefined;
+  Transactions: undefined;
   Customers: undefined;
   Vendors: undefined;
   Settings: undefined;
   "Log Out": undefined;
 };
-const HomeIcon: RenderProp<IconProps> = (iconProps) => <Icon {...iconProps} name="home-outline" />;
-const OrdersIcon: RenderProp<IconProps> = (iconProps) => <Icon {...iconProps} name="shopping-bag-outline" />;
-const CustomersIcon: RenderProp<IconProps> = (iconProps) => <Icon {...iconProps} name="people-outline" />;
-const LogOutIcon: RenderProp<IconProps> = (iconProps) => <Icon {...iconProps} name="log-out-outline" />;
+const HomeIcon: RenderProp<IconProps> = (iconProps) => <Icon {...iconProps} fill="#0f92e4" name="home-outline" />;
+const TransactionsIcon: RenderProp<IconProps> = (iconProps) => <Icon {...iconProps} fill="#0f92e4" name="shopping-bag-outline" />;
+const CustomersIcon: RenderProp<IconProps> = (iconProps) => <Icon {...iconProps} fill="#0f92e4" name="people-outline" />;
+const LogOutIcon: RenderProp<IconProps> = (iconProps) => <Icon {...iconProps} fill="#0f92e4" name="log-out-outline" />;
 const Drawer = createDrawerNavigator<DrawerParamList>();
 
 export const CustomHeader = ({ title }: { title: string }) => {
@@ -41,7 +41,7 @@ export const CustomHeader = ({ title }: { title: string }) => {
   return <View
     style={{
       height: 60,
-      backgroundColor: '#161616',
+      backgroundColor: 'white',
       flexDirection: 'row',
       alignItems: 'center',
       paddingHorizontal: 16,
@@ -52,11 +52,11 @@ export const CustomHeader = ({ title }: { title: string }) => {
       shadowRadius: 3.84,
     }}>
     <TouchableOpacity 
-      style={{paddingRight: "33%"}}
+      style={{paddingRight: "1%"}}
       onPress={() => navigation.toggleDrawer()}>
-      <Icon name="menu-outline" fill="white" style={{ width: 24, height: 24 }} />
+      <Icon name="menu-outline" fill="#0f92e4" style={{ width: 24, height: 24 }} />
     </TouchableOpacity>
-    <Text style={{ color: 'white', fontSize: 20 }}>{title}</Text>
+    <Text style={{ fontSize: 20 }}>{title}</Text>
   </View>
 };
 
@@ -67,9 +67,9 @@ const CustomDrawer = ({ navigation }: DrawerContentComponentProps) => (<DrawerCo
     accessoryLeft={HomeIcon}
   />
   <DrawerItem
-    title="Orders"
+    title="Transactions"
     onPress={() => navigation.navigate('Home')}
-    accessoryLeft={OrdersIcon}
+    accessoryLeft={TransactionsIcon}
   />
   <DrawerItem
     title="Customers"

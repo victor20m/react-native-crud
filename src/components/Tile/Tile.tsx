@@ -15,7 +15,7 @@ interface Props {
 
 export const Tile = ({icon, title, onPress}: Props) => {
   return (
-    <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
+    <TouchableOpacity style={styles.container} onPress={onPress} activeOpacity={0.7}>
       <View style={styles.container}>
         <View style={styles.iconContainer}>{icon}</View>
         <Text style={styles.title}>{title}</Text>

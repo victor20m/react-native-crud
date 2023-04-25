@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 30,
     justifyContent: 'center',
-    gap: 20,
+    gap: 10,
     alignItems: 'center',
     backgroundColor: 'transparent',
   },
@@ -17,7 +17,10 @@ export const styles = StyleSheet.create({
     marginTop: 5,
     textAlign: 'center',
     fontWeight: 'bold',
-    color: '#dbdbdb',
+    color: '#6B95BC',
     fontSize: 20
   },
+  icon: {
+    color: '#0f92e4',
+  }
 });
