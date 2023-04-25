@@ -2,14 +2,14 @@ import React from 'react';
 import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
 import {Layout} from '@ui-kitten/components';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../navigation/AppNavigator';
+import { DrawerNavigationEventMap, DrawerScreenProps } from '@react-navigation/drawer';
+import {DrawerParamList} from '../../navigation/AppNavigator';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {solid} from '@fortawesome/fontawesome-svg-core/import.macro';
-import {Tile} from '../components/Tile/Tile';
+import {Tile} from '../../components/Tile/Tile';
 import {Card, Text} from '@ui-kitten/components';
 import {styles} from './HomeScreen.styles';
-type Props = NativeStackScreenProps<RootStackParamList>;
+type Props = DrawerScreenProps<DrawerParamList>;
 
 const HomeScreen = ({navigation}: Props) => {
   const themeMode: string = '';
@@ -55,7 +55,7 @@ const HomeScreen = ({navigation}: Props) => {
                 />
               }
               title="Customers"
-              onPress={() => navigation.navigate('Home')}
+              onPress={() => navigation.navigate('Customers')}
             />
             <Tile
               icon={

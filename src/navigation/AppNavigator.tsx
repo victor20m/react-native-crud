@@ -1,25 +1,18 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from '../screens/HomeScreen';
+import HomeScreen from '../screens/Home/HomeScreen';
 import { DrawerItem, Icon, IconProps, IconRegistry, Text } from '@ui-kitten/components';
 import { DrawerContentComponentProps, DrawerContentScrollView, DrawerNavigationProp, createDrawerNavigator } from '@react-navigation/drawer';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { RenderProp } from '@ui-kitten/components/devsupport';
 import { View, TouchableOpacity } from 'react-native';
-const { Navigator, Screen } = createNativeStackNavigator();
 import { useNavigation } from '@react-navigation/native';
+import Customers from '../screens/Customers/Customers';
 
 export type RootStackParamList = {
   Home: undefined;
   Settings: undefined;
 };
-
-const HomeNavigator = () => (
-  <Navigator screenOptions={{ headerShown: false }}>
-    <Screen name='Home' component={HomeScreen} />
-  </Navigator>
-);
 
 export type DrawerParamList = {
   Home: undefined;
@@ -73,7 +66,7 @@ const CustomDrawer = ({ navigation }: DrawerContentComponentProps) => (<DrawerCo
   />
   <DrawerItem
     title="Customers"
-    onPress={() => navigation.navigate('Home')}
+    onPress={() => navigation.navigate('Customers')}
     accessoryLeft={CustomersIcon}
   />
   <DrawerItem
@@ -107,8 +100,8 @@ export const AppNavigator: React.FunctionComponent = () => {
           headerTintColor: "white"
         }}>
         <Drawer.Screen name="Home" component={HomeScreen} options={{ header: () => <CustomHeader title="Home" /> }} />
-        <Drawer.Screen name="Orders" component={HomeScreen} />
-        <Drawer.Screen name="Customers" component={HomeScreen} />
+        <Drawer.Screen name="Transactions" component={HomeScreen} />
+        <Drawer.Screen name="Customers" component={Customers} options={{ header: () => <CustomHeader title="Customers" /> }}/>
         <Drawer.Screen name="Vendors" component={HomeScreen} />
         <Drawer.Screen name="Settings" component={HomeScreen} />
         <Drawer.Screen name="Log Out" component={HomeScreen} />
