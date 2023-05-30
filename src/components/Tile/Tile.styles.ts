@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#f5f9fc',
     justifyContent: 'center',
     borderRadius: 20,
-    flexBasis: "40%"
+    flexBasis: "40%",
   },
   iconContainer: {
     alignItems: 'center',
