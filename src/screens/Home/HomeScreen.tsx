@@ -1,9 +1,9 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
 import {Layout} from '@ui-kitten/components';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import { DrawerNavigationEventMap, DrawerScreenProps } from '@react-navigation/drawer';
+import {DrawerScreenProps} from '@react-navigation/drawer';
 import {DrawerParamList} from '../../navigation/AppNavigator';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {solid} from '@fortawesome/fontawesome-svg-core/import.macro';
 import {Tile} from '../../components/Tile/Tile';
@@ -44,7 +44,7 @@ const HomeScreen = ({navigation}: Props) => {
                 />
               }
               title="Transactions"
-              onPress={() => navigation.navigate('Home')}
+              onPress={() => navigation.navigate('Transactions')}
             />
             <Tile
               icon={

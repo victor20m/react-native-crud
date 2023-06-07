@@ -19,8 +19,7 @@ import {RenderProp} from '@ui-kitten/components/devsupport';
 import {View, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Customers from '../screens/Customers/Customers';
-import {solid} from '@fortawesome/fontawesome-svg-core/import.macro';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import Transactions from '../screens/Transactions/Transactions';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -93,7 +92,7 @@ const CustomDrawer = ({navigation}: DrawerContentComponentProps) => (
     />
     <DrawerItem
       title="Transactions"
-      onPress={() => navigation.navigate('Home')}
+      onPress={() => navigation.navigate('Transactions')}
       accessoryLeft={<MenuIcon name="shopping-bag-outline" />}
     />
     <DrawerItem
@@ -152,7 +151,7 @@ export const AppNavigator: React.FunctionComponent = () => {
           component={HomeScreen}
           options={{header: () => <CustomHeader title="Home" />}}
         />
-        <Drawer.Screen name="Transactions" component={HomeScreen} />
+        <Drawer.Screen name="Transactions" component={Transactions} options={{header: () => <CustomHeader title="Transactions" />}}/>
         <Drawer.Screen
           name="Customers"
           component={Customers}
