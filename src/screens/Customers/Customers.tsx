@@ -1,16 +1,10 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
-import {
-  List,
-  ListItem,
-  Icon,
-  Button,
-  IconElement,
-} from '@ui-kitten/components';
+import {List, ListItem, Icon, Button, IconElement} from '@ui-kitten/components';
 import {DrawerParamList} from '../../navigation/AppNavigator';
 import {styles} from './Customers.styles';
 import {DrawerScreenProps} from '@react-navigation/drawer';
-import { customer_data } from './mockedData';
+import {customer_data} from './mockedData';
 type Props = DrawerScreenProps<DrawerParamList>;
 
 interface IListItem {
@@ -18,7 +12,6 @@ interface IListItem {
   title: string;
   description: string;
 }
-
 
 export default ({navigation}: Props) => {
   const renderItemAccessory = (): React.ReactElement => (
@@ -46,7 +39,7 @@ export default ({navigation}: Props) => {
     <>
       <SafeAreaView style={styles.container}>
         <List
-        style={styles.container}
+          style={styles.container}
           data={customer_data}
           renderItem={renderItem}
           keyExtractor={item => item.id}
