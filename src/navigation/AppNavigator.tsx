@@ -1,6 +1,5 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import HomeScreen from '../screens/Home/HomeScreen';
 import {
   DrawerItem,
   Icon,
@@ -18,8 +17,10 @@ import {EvaIconsPack} from '@ui-kitten/eva-icons';
 import {RenderProp} from '@ui-kitten/components/devsupport';
 import {View, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import Customers from '../screens/Customers/Customers';
-import Transactions from '../screens/Transactions/Transactions';
+import HomeScreen from '../screens/Home/HomeScreen';
+import CustomerScreen from '../screens/Customers/Customers';
+import TransactionScreen from '../screens/Transactions/Transactions';
+import LoginScreen from '../screens/Login/LoginScreen';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -32,26 +33,15 @@ export type DrawerParamList = {
   Customers: undefined;
   Vendors: undefined;
   Settings: undefined;
+  Login: undefined;
   'Log Out': undefined;
 };
 
 const MenuIcon: RenderProp<IconProps> = iconProps => (
   <Icon {...iconProps} fill="#0f92e4" />
 );
-
-const HomeIcon: RenderProp<IconProps> = iconProps => (
-  <Icon {...iconProps} fill="#0f92e4" name="home-outline" />
-);
-const TransactionsIcon: RenderProp<IconProps> = iconProps => (
-  <Icon {...iconProps} fill="#0f92e4" name="shopping-bag-outline" />
-);
-const CustomersIcon: RenderProp<IconProps> = iconProps => (
-  <Icon {...iconProps} fill="#0f92e4" name="people-outline" />
-);
-const LogOutIcon: RenderProp<IconProps> = iconProps => (
-  <Icon {...iconProps} fill="#0f92e4" name="log-out-outline" />
-);
 const Drawer = createDrawerNavigator<DrawerParamList>();
+
 export const CustomHeader = ({title}: {title: string}) => {
   const navigation = useNavigation<DrawerNavigationProp<DrawerParamList>>();
 
@@ -117,7 +107,7 @@ const CustomDrawer = ({navigation}: DrawerContentComponentProps) => (
     />
     <DrawerItem
       title="Log Out"
-      onPress={() => navigation.navigate('Home')}
+      onPress={() => navigation.navigate('Login')}
       accessoryLeft={<MenuIcon name="log-out-outline" />}
     />
   </DrawerContentScrollView>
@@ -151,15 +141,15 @@ export const AppNavigator: React.FunctionComponent = () => {
           component={HomeScreen}
           options={{header: () => <CustomHeader title="Home" />}}
         />
-        <Drawer.Screen name="Transactions" component={Transactions} options={{header: () => <CustomHeader title="Transactions" />}}/>
+        <Drawer.Screen name="Transactions" component={TransactionScreen} options={{header: () => <CustomHeader title="Transactions" />}}/>
         <Drawer.Screen
           name="Customers"
-          component={Customers}
+          component={CustomerScreen}
           options={{header: () => <CustomHeader title="Customers" />}}
         />
         <Drawer.Screen name="Vendors" component={HomeScreen} />
         <Drawer.Screen name="Settings" component={HomeScreen} />
-        <Drawer.Screen name="Log Out" component={HomeScreen} />
+        <Drawer.Screen name="Login" component={LoginScreen} options={{header: () => <View/>}}/>
       </Drawer.Navigator>
     </NavigationContainer>
   );
