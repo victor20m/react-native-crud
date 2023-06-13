@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   loginButton: {
-    marginTop: 20,
+    marginTop: 30,
   },
   link: {
     color: '#0f92e4',
