@@ -19,4 +19,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'transparent',
   },
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  searchBar: {
+    width: '80%',
+    marginRight: 30,
+  },
 });

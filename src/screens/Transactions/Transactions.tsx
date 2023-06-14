@@ -15,9 +15,8 @@ import {DrawerParamList} from '../../navigation/AppNavigator';
 import {styles} from './Transactions.styles';
 import {DrawerScreenProps} from '@react-navigation/drawer';
 import {transaction_data} from './mockedData';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {debounce} from '../../utility/Utility';
+import PlusSignButton from '../../components/PlusSignButton/PlusSignButton';
 type Props = DrawerScreenProps<DrawerParamList>;
 
 interface IListItem {
@@ -30,7 +29,6 @@ export default ({navigation}: Props) => {
   const [newMenu, setNewMenu] = useState(false);
   const [transactions, setTransactions] = useState(transaction_data);
   const [searchedTransactions, setSearchedTransactions] = useState('');
-
   const renderItemAccessory = (): React.ReactElement => (
     <Button size="tiny">View</Button>
   );
@@ -55,12 +53,6 @@ export default ({navigation}: Props) => {
       style={styles.item}
     />
   );
-  const newButton = () => (
-    <Button style={styles.plusButton} onPress={() => setNewMenu(true)}>
-      <FontAwesomeIcon icon={faPlus} color="#0f92e4" size={30} />
-    </Button>
-  );
-
   const debouncedSearchOrders = useCallback(
     debounce(text => {
       setTransactions(
@@ -78,6 +70,10 @@ export default ({navigation}: Props) => {
     debouncedSearchOrders(text);
   };
 
+  const toggleMenu = (): React.ReactElement => (
+    <PlusSignButton onPress={() => setNewMenu(true)} />
+  );
+
   return (
     <>
       <SafeAreaView style={styles.container}>
@@ -88,16 +84,14 @@ export default ({navigation}: Props) => {
               placeholder="Search..."
               onChangeText={searchOrders}
             />
-            <View>
-              <OverflowMenu
-                anchor={newButton}
-                visible={newMenu}
-                onBackdropPress={() => setNewMenu(false)}>
-                <MenuItem title="Sales Order" />
-                <MenuItem title="Purchase Order" />
-                <MenuItem title="Transfer Order" />
-              </OverflowMenu>
-            </View>
+            <OverflowMenu
+              anchor={toggleMenu}
+              visible={newMenu}
+              onBackdropPress={() => setNewMenu(false)}>
+              <MenuItem title="Sales Order" />
+              <MenuItem title="Purchase Order" />
+              <MenuItem title="Transfer Order" />
+            </OverflowMenu>
           </View>
         </Card>
         <List

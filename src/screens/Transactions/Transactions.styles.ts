@@ -26,11 +26,5 @@ export const styles = StyleSheet.create({
   searchBar: {
     width: "80%",
     marginRight: 30
-  },
-  plusButton: {
-    width: "10%",
-    borderColor: "transparent",
-    backgroundColor: "transparent",
-    paddingVertical: 1
-  },
+  }
 });
