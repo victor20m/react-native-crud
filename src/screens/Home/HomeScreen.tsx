@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
 import {Layout} from '@ui-kitten/components';
 import {DrawerScreenProps} from '@react-navigation/drawer';
@@ -9,15 +9,18 @@ import {solid} from '@fortawesome/fontawesome-svg-core/import.macro';
 import {Tile} from '../../components/Tile/Tile';
 import {Card, Text} from '@ui-kitten/components';
 import {styles} from './HomeScreen.styles';
+import Geolocation, { GeolocationResponse } from '@react-native-community/geolocation';
 type Props = DrawerScreenProps<DrawerParamList>;
 
 const HomeScreen = ({navigation}: Props) => {
   const themeMode: string = '';
+  const [geoLoc, setGeoLoc] = useState<GeolocationResponse>();
   const backgroundStyle = {
     backgroundColor: themeMode === 'dark' ? Colors.darker : Colors.lighter,
     flex: 1,
   };
   const iconColor = themeMode === 'dark' ? '#000000' : '#2A93D5';
+  Geolocation.getCurrentPosition((position)=>setGeoLoc(position));
   return (
     <SafeAreaView style={backgroundStyle}>
       <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -32,6 +35,7 @@ const HomeScreen = ({navigation}: Props) => {
               Hello, <Text style={styles.userWelcome}>John Doe</Text>
             </Text>
             <Text>Welcome back!</Text>
+            {/*<Text>lat:{geoLoc?.coords?.latitude + " lng:" + geoLoc?.coords?.longitude}</Text>*/}
           </Card>
 
           <Layout style={styles.layout} level="4">

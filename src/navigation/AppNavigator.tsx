@@ -91,7 +91,7 @@ const CustomDrawer = ({navigation}: DrawerContentComponentProps) => (
       accessoryLeft={<MenuIcon name="people-outline" />}
     />
     <DrawerItem
-      title="Custom Records"
+      title="Records"
       onPress={() => navigation.navigate('Home')}
       accessoryLeft={<MenuIcon name="file-text-outline" />}
     />
